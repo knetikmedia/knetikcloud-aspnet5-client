@@ -1,7 +1,7 @@
 /*
  * Knetik Platform API Documentation latest 
  *
- * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+ * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
  *
  * OpenAPI spec version: latest 
  * Contact: support@knetik.com
@@ -40,7 +40,9 @@ namespace IO.Swagger.Models
         /// <param name="Synchronous">Synchronous.</param>
         /// <param name="Timestamp">Timestamp.</param>
         /// <param name="Type">The type of the event. Used for polymorphic type recognition and thus must match an expected type (required).</param>
-        public CacheClearEvent(string Client = default(string), string Customer = default(string), bool? DoNotBroadcast = default(bool?), string Section = default(string), Object Source = default(Object), string Specifics = default(string), bool? Synchronous = default(bool?), long? Timestamp = default(long?), string Type = default(string))
+        /// <param name="CustomerSetup">CustomerSetup.</param>
+        /// <param name="CustomerTeardown">CustomerTeardown.</param>
+        public CacheClearEvent(string Client = default(string), string Customer = default(string), bool? DoNotBroadcast = default(bool?), string Section = default(string), Object Source = default(Object), string Specifics = default(string), bool? Synchronous = default(bool?), long? Timestamp = default(long?), string Type = default(string), bool? CustomerSetup = default(bool?), bool? CustomerTeardown = default(bool?))
         {
             // to ensure "Type" is required (not null)
             if (Type == null)
@@ -59,6 +61,8 @@ namespace IO.Swagger.Models
             this.Specifics = Specifics;
             this.Synchronous = Synchronous;
             this.Timestamp = Timestamp;
+            this.CustomerSetup = CustomerSetup;
+            this.CustomerTeardown = CustomerTeardown;
             
         }
 
@@ -108,6 +112,16 @@ namespace IO.Swagger.Models
         /// <value>The type of the event. Used for polymorphic type recognition and thus must match an expected type</value>
         [DataMember(Name="type")]
         public string Type { get; set; }
+        /// <summary>
+        /// Gets or Sets CustomerSetup
+        /// </summary>
+        [DataMember(Name="customer_setup")]
+        public bool? CustomerSetup { get; set; }
+        /// <summary>
+        /// Gets or Sets CustomerTeardown
+        /// </summary>
+        [DataMember(Name="customer_teardown")]
+        public bool? CustomerTeardown { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -126,6 +140,8 @@ namespace IO.Swagger.Models
             sb.Append("  Synchronous: ").Append(Synchronous).Append("\n");
             sb.Append("  Timestamp: ").Append(Timestamp).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  CustomerSetup: ").Append(CustomerSetup).Append("\n");
+            sb.Append("  CustomerTeardown: ").Append(CustomerTeardown).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -208,6 +224,16 @@ namespace IO.Swagger.Models
                     this.Type == other.Type ||
                     this.Type != null &&
                     this.Type.Equals(other.Type)
+                ) && 
+                (
+                    this.CustomerSetup == other.CustomerSetup ||
+                    this.CustomerSetup != null &&
+                    this.CustomerSetup.Equals(other.CustomerSetup)
+                ) && 
+                (
+                    this.CustomerTeardown == other.CustomerTeardown ||
+                    this.CustomerTeardown != null &&
+                    this.CustomerTeardown.Equals(other.CustomerTeardown)
                 );
         }
 
@@ -240,6 +266,10 @@ namespace IO.Swagger.Models
                     hash = hash * 59 + this.Timestamp.GetHashCode();
                     if (this.Type != null)
                     hash = hash * 59 + this.Type.GetHashCode();
+                    if (this.CustomerSetup != null)
+                    hash = hash * 59 + this.CustomerSetup.GetHashCode();
+                    if (this.CustomerTeardown != null)
+                    hash = hash * 59 + this.CustomerTeardown.GetHashCode();
                 return hash;
             }
         }

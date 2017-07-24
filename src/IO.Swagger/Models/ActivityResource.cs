@@ -1,7 +1,7 @@
 /*
  * Knetik Platform API Documentation latest 
  *
- * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+ * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
  *
  * OpenAPI spec version: latest 
  * Contact: support@knetik.com
@@ -22,14 +22,14 @@ namespace IO.Swagger.Models
 {
 
     /// <summary>
-    /// 
+    /// Represents an activity that can be parameterized and tracked through metrics (scores, etc)
     /// </summary>
     [DataContract]
-    public partial class RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc :  IEquatable<RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc>
+    public partial class ActivityResource :  IEquatable<ActivityResource>
     {
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc" /> class.
+        /// Initializes a new instance of the <see cref="ActivityResource" /> class.
         /// </summary>
         /// <param name="AdditionalProperties">A map of additional properties keyed on the property name. Used to further describe an activity. While settings will vary from one activity occurrence (a game) to another, additional properties are shared by all the occurrences of this activity. Ex: Activity Logo, Disclaimer, Greeting, etc. Validated against template if one exists for activities.</param>
         /// <param name="CreatedDate">The date/time this resource was created in seconds since unix epoch.</param>
@@ -46,12 +46,12 @@ namespace IO.Swagger.Models
         /// <param name="Type">The type of the activity (required).</param>
         /// <param name="UniqueKey">The unique key (for static reference in code) of the activity.</param>
         /// <param name="UpdatedDate">The date/time this resource was last updated in seconds since unix epoch.</param>
-        public RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc(Dictionary<string, Property> AdditionalProperties = default(Dictionary<string, Property>), List<ActivityEntitlementResource> Entitlements = default(List<ActivityEntitlementResource>), string Launch = default(string), string LongDescription = default(string), string Name = default(string), RewardSetResource RewardSet = default(RewardSetResource), List<TheDefinitionOfAnActivityParametersExDifficultyLevel> Settings = default(List<TheDefinitionOfAnActivityParametersExDifficultyLevel>), string ShortDescription = default(string), bool? Template = default(bool?), string TemplateId = default(string), string Type = default(string), string UniqueKey = default(string))
+        public ActivityResource(Dictionary<string, Property> AdditionalProperties = default(Dictionary<string, Property>), List<ActivityEntitlementResource> Entitlements = default(List<ActivityEntitlementResource>), string Launch = default(string), string LongDescription = default(string), string Name = default(string), RewardSetResource RewardSet = default(RewardSetResource), List<AvailableSettingResource> Settings = default(List<AvailableSettingResource>), string ShortDescription = default(string), bool? Template = default(bool?), string TemplateId = default(string), string Type = default(string), string UniqueKey = default(string))
         {
             // to ensure "Name" is required (not null)
             if (Name == null)
             {
-                throw new InvalidDataException("Name is a required property for RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc and cannot be null");
+                throw new InvalidDataException("Name is a required property for ActivityResource and cannot be null");
             }
             else
             {
@@ -60,7 +60,7 @@ namespace IO.Swagger.Models
             // to ensure "Type" is required (not null)
             if (Type == null)
             {
-                throw new InvalidDataException("Type is a required property for RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc and cannot be null");
+                throw new InvalidDataException("Type is a required property for ActivityResource and cannot be null");
             }
             else
             {
@@ -135,7 +135,7 @@ namespace IO.Swagger.Models
         /// </summary>
         /// <value>Define what parameters are required/available to start and run an activity. For example: Difficulty, Number of Questions, Character name, Avatar, Duration, etc. Not populated when getting listing</value>
         [DataMember(Name="settings")]
-        public List<TheDefinitionOfAnActivityParametersExDifficultyLevel> Settings { get; set; }
+        public List<AvailableSettingResource> Settings { get; set; }
         /// <summary>
         /// The user friendly name of that resource. Defaults to blank string
         /// </summary>
@@ -180,7 +180,7 @@ namespace IO.Swagger.Models
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc {\n");
+            sb.Append("class ActivityResource {\n");
             sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("  CreatedDate: ").Append(CreatedDate).Append("\n");
             sb.Append("  Entitlements: ").Append(Entitlements).Append("\n");
@@ -219,15 +219,15 @@ namespace IO.Swagger.Models
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
             if (obj.GetType() != GetType()) return false;
-            return Equals((RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc)obj);
+            return Equals((ActivityResource)obj);
         }
 
         /// <summary>
-        /// Returns true if RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc instances are equal
+        /// Returns true if ActivityResource instances are equal
         /// </summary>
-        /// <param name="other">Instance of RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc to be compared</param>
+        /// <param name="other">Instance of ActivityResource to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc other)
+        public bool Equals(ActivityResource other)
         {
 
             if (ReferenceEquals(null, other)) return false;
@@ -358,12 +358,12 @@ namespace IO.Swagger.Models
 
         #region Operators
 
-        public static bool operator ==(RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc left, RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc right)
+        public static bool operator ==(ActivityResource left, ActivityResource right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc left, RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc right)
+        public static bool operator !=(ActivityResource left, ActivityResource right)
         {
             return !Equals(left, right);
         }

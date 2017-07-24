@@ -1,7 +1,7 @@
 /*
  * Knetik Platform API Documentation latest 
  *
- * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+ * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
  *
  * OpenAPI spec version: latest 
  * Contact: support@knetik.com
@@ -32,9 +32,10 @@ namespace IO.Swagger.Models
         /// Initializes a new instance of the <see cref="RefundRequest" /> class.
         /// </summary>
         /// <param name="Amount">The amount to refund. If left off, will refund the remaining balance of the transaction or specific item balance (if SKU provided), whichever is less..</param>
+        /// <param name="BundleSku">The SKU of a bundle item from the invoice that the target item is within..</param>
         /// <param name="Notes">Notes about or reason for the refund (required).</param>
         /// <param name="Sku">The SKU of a specific item from the invoice to refund. Affects the maximum refund amount (not to exceed the price of this item times quantity on invoice). Transaction must be tied to an invoice if used..</param>
-        public RefundRequest(double? Amount = default(double?), string Notes = default(string), string Sku = default(string))
+        public RefundRequest(double? Amount = default(double?), string BundleSku = default(string), string Notes = default(string), string Sku = default(string))
         {
             // to ensure "Notes" is required (not null)
             if (Notes == null)
@@ -46,6 +47,7 @@ namespace IO.Swagger.Models
                 this.Notes = Notes;
             }
             this.Amount = Amount;
+            this.BundleSku = BundleSku;
             this.Sku = Sku;
             
         }
@@ -56,6 +58,12 @@ namespace IO.Swagger.Models
         /// <value>The amount to refund. If left off, will refund the remaining balance of the transaction or specific item balance (if SKU provided), whichever is less.</value>
         [DataMember(Name="amount")]
         public double? Amount { get; set; }
+        /// <summary>
+        /// The SKU of a bundle item from the invoice that the target item is within.
+        /// </summary>
+        /// <value>The SKU of a bundle item from the invoice that the target item is within.</value>
+        [DataMember(Name="bundle_sku")]
+        public string BundleSku { get; set; }
         /// <summary>
         /// Notes about or reason for the refund
         /// </summary>
@@ -78,6 +86,7 @@ namespace IO.Swagger.Models
             var sb = new StringBuilder();
             sb.Append("class RefundRequest {\n");
             sb.Append("  Amount: ").Append(Amount).Append("\n");
+            sb.Append("  BundleSku: ").Append(BundleSku).Append("\n");
             sb.Append("  Notes: ").Append(Notes).Append("\n");
             sb.Append("  Sku: ").Append(Sku).Append("\n");
             sb.Append("}\n");
@@ -124,6 +133,11 @@ namespace IO.Swagger.Models
                     this.Amount.Equals(other.Amount)
                 ) && 
                 (
+                    this.BundleSku == other.BundleSku ||
+                    this.BundleSku != null &&
+                    this.BundleSku.Equals(other.BundleSku)
+                ) && 
+                (
                     this.Notes == other.Notes ||
                     this.Notes != null &&
                     this.Notes.Equals(other.Notes)
@@ -148,6 +162,8 @@ namespace IO.Swagger.Models
                 // Suitable nullity checks etc, of course :)
                     if (this.Amount != null)
                     hash = hash * 59 + this.Amount.GetHashCode();
+                    if (this.BundleSku != null)
+                    hash = hash * 59 + this.BundleSku.GetHashCode();
                     if (this.Notes != null)
                     hash = hash * 59 + this.Notes.GetHashCode();
                     if (this.Sku != null)

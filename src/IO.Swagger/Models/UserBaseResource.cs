@@ -1,7 +1,7 @@
 /*
  * Knetik Platform API Documentation latest 
  *
- * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+ * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
  *
  * OpenAPI spec version: latest 
  * Contact: support@knetik.com
@@ -36,6 +36,7 @@ namespace IO.Swagger.Models
         /// <param name="Email">The user&#39;s email address (private). May be required and/or unique depending on system configuration (both on by default). Must match standard email requirements if provided (RFC 2822) (required).</param>
         /// <param name="Fullname">The user&#39;s full name (private).</param>
         /// <param name="Id">The id of the user.</param>
+        /// <param name="LastActivity">The date the user last interacted with the API (private).</param>
         /// <param name="LastUpdated">The date the user&#39;s info was last updated as a unix timestamp.</param>
         /// <param name="MemberSince">The user&#39;s date of registration as a unix timestamp.</param>
         /// <param name="Username">The login username for the user (private). May be set to match email if system does not require usernames separately. (required).</param>
@@ -63,6 +64,7 @@ namespace IO.Swagger.Models
             this.DisplayName = DisplayName;
             this.Fullname = Fullname;
             this.Id = Id;
+            this.LastActivity = LastActivity;
             this.LastUpdated = LastUpdated;
             this.MemberSince = MemberSince;
             
@@ -99,6 +101,12 @@ namespace IO.Swagger.Models
         [DataMember(Name="id")]
         public int? Id { get; private set; }
         /// <summary>
+        /// The date the user last interacted with the API (private)
+        /// </summary>
+        /// <value>The date the user last interacted with the API (private)</value>
+        [DataMember(Name="last_activity")]
+        public long? LastActivity { get; private set; }
+        /// <summary>
         /// The date the user&#39;s info was last updated as a unix timestamp
         /// </summary>
         /// <value>The date the user&#39;s info was last updated as a unix timestamp</value>
@@ -130,6 +138,7 @@ namespace IO.Swagger.Models
             sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  Fullname: ").Append(Fullname).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  LastActivity: ").Append(LastActivity).Append("\n");
             sb.Append("  LastUpdated: ").Append(LastUpdated).Append("\n");
             sb.Append("  MemberSince: ").Append(MemberSince).Append("\n");
             sb.Append("  Username: ").Append(Username).Append("\n");
@@ -197,6 +206,11 @@ namespace IO.Swagger.Models
                     this.Id.Equals(other.Id)
                 ) && 
                 (
+                    this.LastActivity == other.LastActivity ||
+                    this.LastActivity != null &&
+                    this.LastActivity.Equals(other.LastActivity)
+                ) && 
+                (
                     this.LastUpdated == other.LastUpdated ||
                     this.LastUpdated != null &&
                     this.LastUpdated.Equals(other.LastUpdated)
@@ -234,6 +248,8 @@ namespace IO.Swagger.Models
                     hash = hash * 59 + this.Fullname.GetHashCode();
                     if (this.Id != null)
                     hash = hash * 59 + this.Id.GetHashCode();
+                    if (this.LastActivity != null)
+                    hash = hash * 59 + this.LastActivity.GetHashCode();
                     if (this.LastUpdated != null)
                     hash = hash * 59 + this.LastUpdated.GetHashCode();
                     if (this.MemberSince != null)

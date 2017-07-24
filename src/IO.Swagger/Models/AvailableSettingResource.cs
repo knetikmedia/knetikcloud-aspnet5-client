@@ -1,7 +1,7 @@
 /*
  * Knetik Platform API Documentation latest 
  *
- * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+ * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
  *
  * OpenAPI spec version: latest 
  * Contact: support@knetik.com
@@ -22,14 +22,14 @@ namespace IO.Swagger.Models
 {
 
     /// <summary>
-    /// 
+    /// The definition of an activity parameters: ex: difficulty level
     /// </summary>
     [DataContract]
-    public partial class TheDefinitionOfAnActivityParametersExDifficultyLevel :  IEquatable<TheDefinitionOfAnActivityParametersExDifficultyLevel>
+    public partial class AvailableSettingResource :  IEquatable<AvailableSettingResource>
     {
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TheDefinitionOfAnActivityParametersExDifficultyLevel" /> class.
+        /// Initializes a new instance of the <see cref="AvailableSettingResource" /> class.
         /// </summary>
         /// <param name="AdvancedOption">Whether the setting is advanced. Default: false.</param>
         /// <param name="DefaultValue">The default value of the setting (must be in options array). Ex: easy (required).</param>
@@ -37,12 +37,12 @@ namespace IO.Swagger.Models
         /// <param name="Key">The unique ID for the setting: Ex: difficulty (required).</param>
         /// <param name="Name">The textual name of the setting: Ex: Difficulty Level (required).</param>
         /// <param name="Options">The set of options available for this setting, Ex: easy, medium, hard (required).</param>
-        public TheDefinitionOfAnActivityParametersExDifficultyLevel(bool? AdvancedOption = default(bool?), string DefaultValue = default(string), string Description = default(string), string Key = default(string), string Name = default(string), List<SettingOption> Options = default(List<SettingOption>))
+        public AvailableSettingResource(bool? AdvancedOption = default(bool?), string DefaultValue = default(string), string Description = default(string), string Key = default(string), string Name = default(string), List<SettingOption> Options = default(List<SettingOption>))
         {
             // to ensure "DefaultValue" is required (not null)
             if (DefaultValue == null)
             {
-                throw new InvalidDataException("DefaultValue is a required property for TheDefinitionOfAnActivityParametersExDifficultyLevel and cannot be null");
+                throw new InvalidDataException("DefaultValue is a required property for AvailableSettingResource and cannot be null");
             }
             else
             {
@@ -51,7 +51,7 @@ namespace IO.Swagger.Models
             // to ensure "Key" is required (not null)
             if (Key == null)
             {
-                throw new InvalidDataException("Key is a required property for TheDefinitionOfAnActivityParametersExDifficultyLevel and cannot be null");
+                throw new InvalidDataException("Key is a required property for AvailableSettingResource and cannot be null");
             }
             else
             {
@@ -60,7 +60,7 @@ namespace IO.Swagger.Models
             // to ensure "Name" is required (not null)
             if (Name == null)
             {
-                throw new InvalidDataException("Name is a required property for TheDefinitionOfAnActivityParametersExDifficultyLevel and cannot be null");
+                throw new InvalidDataException("Name is a required property for AvailableSettingResource and cannot be null");
             }
             else
             {
@@ -69,7 +69,7 @@ namespace IO.Swagger.Models
             // to ensure "Options" is required (not null)
             if (Options == null)
             {
-                throw new InvalidDataException("Options is a required property for TheDefinitionOfAnActivityParametersExDifficultyLevel and cannot be null");
+                throw new InvalidDataException("Options is a required property for AvailableSettingResource and cannot be null");
             }
             else
             {
@@ -124,7 +124,7 @@ namespace IO.Swagger.Models
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class TheDefinitionOfAnActivityParametersExDifficultyLevel {\n");
+            sb.Append("class AvailableSettingResource {\n");
             sb.Append("  AdvancedOption: ").Append(AdvancedOption).Append("\n");
             sb.Append("  DefaultValue: ").Append(DefaultValue).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
@@ -154,15 +154,15 @@ namespace IO.Swagger.Models
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
             if (obj.GetType() != GetType()) return false;
-            return Equals((TheDefinitionOfAnActivityParametersExDifficultyLevel)obj);
+            return Equals((AvailableSettingResource)obj);
         }
 
         /// <summary>
-        /// Returns true if TheDefinitionOfAnActivityParametersExDifficultyLevel instances are equal
+        /// Returns true if AvailableSettingResource instances are equal
         /// </summary>
-        /// <param name="other">Instance of TheDefinitionOfAnActivityParametersExDifficultyLevel to be compared</param>
+        /// <param name="other">Instance of AvailableSettingResource to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TheDefinitionOfAnActivityParametersExDifficultyLevel other)
+        public bool Equals(AvailableSettingResource other)
         {
 
             if (ReferenceEquals(null, other)) return false;
@@ -230,12 +230,12 @@ namespace IO.Swagger.Models
 
         #region Operators
 
-        public static bool operator ==(TheDefinitionOfAnActivityParametersExDifficultyLevel left, TheDefinitionOfAnActivityParametersExDifficultyLevel right)
+        public static bool operator ==(AvailableSettingResource left, AvailableSettingResource right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(TheDefinitionOfAnActivityParametersExDifficultyLevel left, TheDefinitionOfAnActivityParametersExDifficultyLevel right)
+        public static bool operator !=(AvailableSettingResource left, AvailableSettingResource right)
         {
             return !Equals(left, right);
         }

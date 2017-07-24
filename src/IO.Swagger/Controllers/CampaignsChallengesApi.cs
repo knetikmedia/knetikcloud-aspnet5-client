@@ -1,7 +1,7 @@
 /*
  * Knetik Platform API Documentation latest 
  *
- * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+ * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
  *
  * OpenAPI spec version: latest 
  * Contact: support@knetik.com
@@ -153,8 +153,8 @@ namespace IO.Swagger.Controllers
         /// <summary>
         /// Delete a challenge activity
         /// </summary>
-        
-        /// <param name="activityId">The activity id</param>
+        /// <remarks>A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge</remarks>
+        /// <param name="id">The challenge_activity id</param>
         /// <param name="challengeId">The challenge id</param>
         /// <response code="204">No Content</response>
         /// <response code="400">Bad Request</response>
@@ -162,9 +162,9 @@ namespace IO.Swagger.Controllers
         /// <response code="403">Forbidden</response>
         /// <response code="404">Not Found</response>
         [HttpDelete]
-        [Route("//challenges/{challenge_id}/activities/{activity_id}")]
+        [Route("//challenges/{challenge_id}/activities/{id}")]
         [SwaggerOperation("DeleteChallengeActivity")]
-        public virtual void DeleteChallengeActivity([FromRoute]long? activityId, [FromRoute]long? challengeId)
+        public virtual void DeleteChallengeActivity([FromRoute]long? id, [FromRoute]long? challengeId)
         { 
             throw new NotImplementedException();
         }
@@ -285,18 +285,19 @@ namespace IO.Swagger.Controllers
         /// <summary>
         /// Get a single challenge activity
         /// </summary>
-        
-        /// <param name="activityId">The activity id</param>
+        /// <remarks>A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge</remarks>
+        /// <param name="id">The challenge_activity id</param>
+        /// <param name="challengeId">The challenge id</param>
         /// <response code="200">OK</response>
         /// <response code="400">Bad Request</response>
         /// <response code="401">Unauthorized</response>
         /// <response code="403">Forbidden</response>
         /// <response code="404">Not Found</response>
         [HttpGet]
-        [Route("//challenges/{challenge_id}/activities/{activity_id}")]
+        [Route("//challenges/{challenge_id}/activities/{id}")]
         [SwaggerOperation("GetChallengeActivity")]
         [SwaggerResponse(200, type: typeof(ChallengeActivityResource))]
-        public virtual IActionResult GetChallengeActivity([FromRoute]long? activityId)
+        public virtual IActionResult GetChallengeActivity([FromRoute]long? id, [FromRoute]long? challengeId)
         { 
             string exampleJson = null;
             
@@ -527,8 +528,8 @@ namespace IO.Swagger.Controllers
         /// <summary>
         /// Update a challenge activity
         /// </summary>
-        
-        /// <param name="activityId">The activity id</param>
+        /// <remarks>A challenge can have multiple instances of the same activity and thus the id used is of the specific entry within the challenge</remarks>
+        /// <param name="id">The challenge_activity id</param>
         /// <param name="challengeId">The challenge id</param>
         /// <param name="challengeActivityResource">The challenge activity resource object</param>
         /// <response code="204">No Content</response>
@@ -537,10 +538,10 @@ namespace IO.Swagger.Controllers
         /// <response code="403">Forbidden</response>
         /// <response code="404">Not Found</response>
         [HttpPut]
-        [Route("//challenges/{challenge_id}/activities/{activity_id}")]
+        [Route("//challenges/{challenge_id}/activities/{id}")]
         [SwaggerOperation("UpdateChallengeActivity")]
         [SwaggerResponse(200, type: typeof(ChallengeActivityResource))]
-        public virtual IActionResult UpdateChallengeActivity([FromRoute]long? activityId, [FromRoute]long? challengeId, [FromBody]ChallengeActivityResource challengeActivityResource)
+        public virtual IActionResult UpdateChallengeActivity([FromRoute]long? id, [FromRoute]long? challengeId, [FromBody]ChallengeActivityResource challengeActivityResource)
         { 
             string exampleJson = null;
             

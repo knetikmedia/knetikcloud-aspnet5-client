@@ -1,7 +1,7 @@
 /*
  * Knetik Platform API Documentation latest 
  *
- * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+ * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
  *
  * OpenAPI spec version: latest 
  * Contact: support@knetik.com
@@ -167,9 +167,9 @@ namespace IO.Swagger.Models
             EventEnum
         }
         /// <summary>
-        /// The category this trigger belongs to. See endpoints for related asset information. All new triggers are in category 'custom'
+        /// The category this trigger belongs to. See endpoints for related asset information. All new triggers are in category &#39;custom&#39;
         /// </summary>
-        /// <value>The category this trigger belongs to. See endpoints for related asset information. All new triggers are in category 'custom'</value>
+        /// <value>The category this trigger belongs to. See endpoints for related asset information. All new triggers are in category &#39;custom&#39;</value>
         [DataMember(Name="category")]
         public CategoryEnum? Category { get; set; }
 

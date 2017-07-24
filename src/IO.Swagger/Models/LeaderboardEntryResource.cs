@@ -1,7 +1,7 @@
 /*
  * Knetik Platform API Documentation latest 
  *
- * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+ * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
  *
  * OpenAPI spec version: latest 
  * Contact: support@knetik.com
@@ -33,8 +33,9 @@ namespace IO.Swagger.Models
         /// </summary>
         /// <param name="Rank">The position of the user in the leaderboard. Null means non-compete or disqualification.</param>
         /// <param name="Score">The raw score in this leaderboard. Null means non-compete or disqualification.</param>
+        /// <param name="UpdatedDate">The date this score was recorded or updated. Unix timestamp in seconds.</param>
         /// <param name="User">The player for this entry (required).</param>
-        public LeaderboardEntryResource(long? Rank = default(long?), long? Score = default(long?), SimpleUserResource User = default(SimpleUserResource))
+        public LeaderboardEntryResource(long? Rank = default(long?), long? Score = default(long?), long? UpdatedDate = default(long?), SimpleUserResource User = default(SimpleUserResource))
         {
             // to ensure "User" is required (not null)
             if (User == null)
@@ -47,6 +48,7 @@ namespace IO.Swagger.Models
             }
             this.Rank = Rank;
             this.Score = Score;
+            this.UpdatedDate = UpdatedDate;
             
         }
 
@@ -62,6 +64,12 @@ namespace IO.Swagger.Models
         /// <value>The raw score in this leaderboard. Null means non-compete or disqualification</value>
         [DataMember(Name="score")]
         public long? Score { get; set; }
+        /// <summary>
+        /// The date this score was recorded or updated. Unix timestamp in seconds
+        /// </summary>
+        /// <value>The date this score was recorded or updated. Unix timestamp in seconds</value>
+        [DataMember(Name="updated_date")]
+        public long? UpdatedDate { get; set; }
         /// <summary>
         /// The player for this entry
         /// </summary>
@@ -79,6 +87,7 @@ namespace IO.Swagger.Models
             sb.Append("class LeaderboardEntryResource {\n");
             sb.Append("  Rank: ").Append(Rank).Append("\n");
             sb.Append("  Score: ").Append(Score).Append("\n");
+            sb.Append("  UpdatedDate: ").Append(UpdatedDate).Append("\n");
             sb.Append("  User: ").Append(User).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -129,6 +138,11 @@ namespace IO.Swagger.Models
                     this.Score.Equals(other.Score)
                 ) && 
                 (
+                    this.UpdatedDate == other.UpdatedDate ||
+                    this.UpdatedDate != null &&
+                    this.UpdatedDate.Equals(other.UpdatedDate)
+                ) && 
+                (
                     this.User == other.User ||
                     this.User != null &&
                     this.User.Equals(other.User)
@@ -150,6 +164,8 @@ namespace IO.Swagger.Models
                     hash = hash * 59 + this.Rank.GetHashCode();
                     if (this.Score != null)
                     hash = hash * 59 + this.Score.GetHashCode();
+                    if (this.UpdatedDate != null)
+                    hash = hash * 59 + this.UpdatedDate.GetHashCode();
                     if (this.User != null)
                     hash = hash * 59 + this.User.GetHashCode();
                 return hash;

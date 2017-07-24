@@ -1,7 +1,7 @@
 /*
  * Knetik Platform API Documentation latest 
  *
- * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+ * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
  *
  * OpenAPI spec version: latest 
  * Contact: support@knetik.com
@@ -160,7 +160,7 @@ namespace IO.Swagger.Controllers
         [Route("//invoices")]
         [SwaggerOperation("GetInvoices")]
         [SwaggerResponse(200, type: typeof(PageResourceInvoiceResource))]
-        public virtual IActionResult GetInvoices([FromQuery]int? filterUser, [FromQuery]string filterEmail, [FromQuery]string filterFulfillmentStatus, [FromQuery]string filterPaymentStatus, [FromQuery]string filterItemName, [FromQuery]string filterExternalRef, [FromQuery]string filterCreatedDate, [FromQuery]Object filterVendorIds, [FromQuery]string filterCurrency, [FromQuery]string filterShippingStateName, [FromQuery]string filterShippingCountryName, [FromQuery]string filterShipping, [FromQuery]string filterVendorName, [FromQuery]string filterSku, [FromQuery]int? size, [FromQuery]int? page, [FromQuery]string order)
+        public virtual IActionResult GetInvoices([FromQuery]int? filterUser, [FromQuery]string filterEmail, [FromQuery]string filterFulfillmentStatus, [FromQuery]string filterPaymentStatus, [FromQuery]string filterItemName, [FromQuery]string filterExternalRef, [FromQuery]string filterCreatedDate, [FromQuery]string filterVendorIds, [FromQuery]string filterCurrency, [FromQuery]string filterShippingStateName, [FromQuery]string filterShippingCountryName, [FromQuery]string filterShipping, [FromQuery]string filterVendorName, [FromQuery]string filterSku, [FromQuery]int? size, [FromQuery]int? page, [FromQuery]string order)
         { 
             string exampleJson = null;
             
@@ -210,6 +210,28 @@ namespace IO.Swagger.Controllers
         [Route("//invoices/{id}/payments")]
         [SwaggerOperation("PayInvoice")]
         public virtual void PayInvoice([FromRoute]int? id, [FromBody]PayBySavedMethodRequest request)
+        { 
+            throw new NotImplementedException();
+        }
+
+
+        /// <summary>
+        /// Set the fulfillment status of a bundled invoice item
+        /// </summary>
+        /// <remarks>This allows external fulfillment systems to report success or failure. Fulfillment status changes are restricted by a specific flow determining which status can lead to which.</remarks>
+        /// <param name="id">The id of the invoice</param>
+        /// <param name="bundleSku">The sku of the bundle in the invoice that contains the given target</param>
+        /// <param name="sku">The sku of an item in the bundle in the invoice</param>
+        /// <param name="status">The new fulfillment status for the item. Additional options may be available based on configuration.  Allowable values:  &#39;unfulfilled&#39;, &#39;fulfilled&#39;, &#39;not fulfillable&#39;, &#39;failed&#39;, &#39;processing&#39;, &#39;failed_permanent&#39;, &#39;delayed&#39;</param>
+        /// <response code="204">No Content</response>
+        /// <response code="400">Bad Request</response>
+        /// <response code="401">Unauthorized</response>
+        /// <response code="403">Forbidden</response>
+        /// <response code="404">Not Found</response>
+        [HttpPut]
+        [Route("//invoices/{id}/items/{bundleSku}/bundled-skus/{sku}/fulfillment-status")]
+        [SwaggerOperation("SetBundledInvoiceItemFulfillmentStatus")]
+        public virtual void SetBundledInvoiceItemFulfillmentStatus([FromRoute]int? id, [FromRoute]string bundleSku, [FromRoute]string sku, [FromBody]string status)
         { 
             throw new NotImplementedException();
         }

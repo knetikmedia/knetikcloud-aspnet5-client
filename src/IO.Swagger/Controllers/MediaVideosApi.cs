@@ -1,7 +1,7 @@
 /*
  * Knetik Platform API Documentation latest 
  *
- * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+ * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
  *
  * OpenAPI spec version: latest 
  * Contact: support@knetik.com
@@ -457,7 +457,7 @@ namespace IO.Swagger.Controllers
         [Route("//media/videos")]
         [SwaggerOperation("GetVideos")]
         [SwaggerResponse(200, type: typeof(PageResourceVideoResource))]
-        public virtual IActionResult GetVideos([FromQuery]bool? excludeFlagged, [FromQuery]Object filterVideosByUploader, [FromQuery]string filterCategory, [FromQuery]string filterTagset, [FromQuery]string filterVideosByName, [FromQuery]Object filterVideosByContributor, [FromQuery]Object filterVideosByAuthor, [FromQuery]bool? filterHasAuthor, [FromQuery]bool? filterHasUploader, [FromQuery]string filterRelatedTo, [FromQuery]bool? filterFriends, [FromQuery]string filterDisposition, [FromQuery]int? size, [FromQuery]int? page, [FromQuery]string order)
+        public virtual IActionResult GetVideos([FromQuery]bool? excludeFlagged, [FromQuery]int? filterVideosByUploader, [FromQuery]string filterCategory, [FromQuery]string filterTagset, [FromQuery]string filterVideosByName, [FromQuery]int? filterVideosByContributor, [FromQuery]int? filterVideosByAuthor, [FromQuery]bool? filterHasAuthor, [FromQuery]bool? filterHasUploader, [FromQuery]string filterRelatedTo, [FromQuery]bool? filterFriends, [FromQuery]string filterDisposition, [FromQuery]int? size, [FromQuery]int? page, [FromQuery]string order)
         { 
             string exampleJson = null;
             

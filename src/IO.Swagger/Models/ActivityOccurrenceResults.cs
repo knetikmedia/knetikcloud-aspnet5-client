@@ -1,7 +1,7 @@
 /*
  * Knetik Platform API Documentation latest 
  *
- * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+ * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
  *
  * OpenAPI spec version: latest 
  * Contact: support@knetik.com
@@ -32,7 +32,7 @@ namespace IO.Swagger.Models
         /// Initializes a new instance of the <see cref="ActivityOccurrenceResults" /> class.
         /// </summary>
         /// <param name="Users">The game results for each user. Include all users that played (paid to get in) even if they were eliminated without a result. A null metric is allowed (required).</param>
-        public ActivityOccurrenceResults(List<UserActivityResultsResource> Users = default(List<UserActivityResultsResource>))
+        public ActivityOccurrenceResults(List<UserActivityResults> Users = default(List<UserActivityResults>))
         {
             // to ensure "Users" is required (not null)
             if (Users == null)
@@ -51,7 +51,7 @@ namespace IO.Swagger.Models
         /// </summary>
         /// <value>The game results for each user. Include all users that played (paid to get in) even if they were eliminated without a result. A null metric is allowed</value>
         [DataMember(Name="users")]
-        public List<UserActivityResultsResource> Users { get; set; }
+        public List<UserActivityResults> Users { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

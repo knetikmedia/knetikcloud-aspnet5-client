@@ -1,7 +1,7 @@
 /*
  * Knetik Platform API Documentation latest 
  *
- * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+ * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
  *
  * OpenAPI spec version: latest 
  * Contact: support@knetik.com
@@ -31,7 +31,6 @@ namespace IO.Swagger.Models
         /// <summary>
         /// Initializes a new instance of the <see cref="InvoiceItemResource" /> class.
         /// </summary>
-        /// <param name="AffiliateId">AffiliateId.</param>
         /// <param name="BundleSku">BundleSku.</param>
         /// <param name="CurrentFulfillmentStatus">CurrentFulfillmentStatus.</param>
         /// <param name="Id">Id.</param>
@@ -48,9 +47,8 @@ namespace IO.Swagger.Models
         /// <param name="TotalPrice">TotalPrice.</param>
         /// <param name="TypeHint">TypeHint.</param>
         /// <param name="UnitPrice">UnitPrice.</param>
-        public InvoiceItemResource(int? AffiliateId = default(int?), string BundleSku = default(string), string CurrentFulfillmentStatus = default(string), int? Id = default(int?), int? InvoiceId = default(int?), int? ItemId = default(int?), string ItemName = default(string), double? OriginalTotalPrice = default(double?), double? OriginalUnitPrice = default(double?), int? Qty = default(int?), string SaleName = default(string), string Sku = default(string), string SkuDescription = default(string), double? SystemPrice = default(double?), double? TotalPrice = default(double?), string TypeHint = default(string), double? UnitPrice = default(double?))
+        public InvoiceItemResource(string BundleSku = default(string), string CurrentFulfillmentStatus = default(string), int? Id = default(int?), int? InvoiceId = default(int?), int? ItemId = default(int?), string ItemName = default(string), double? OriginalTotalPrice = default(double?), double? OriginalUnitPrice = default(double?), int? Qty = default(int?), string SaleName = default(string), string Sku = default(string), string SkuDescription = default(string), double? SystemPrice = default(double?), double? TotalPrice = default(double?), string TypeHint = default(string), double? UnitPrice = default(double?))
         {
-            this.AffiliateId = AffiliateId;
             this.BundleSku = BundleSku;
             this.CurrentFulfillmentStatus = CurrentFulfillmentStatus;
             this.Id = Id;
@@ -70,11 +68,6 @@ namespace IO.Swagger.Models
             
         }
 
-        /// <summary>
-        /// Gets or Sets AffiliateId
-        /// </summary>
-        [DataMember(Name="affiliate_id")]
-        public int? AffiliateId { get; set; }
         /// <summary>
         /// Gets or Sets BundleSku
         /// </summary>
@@ -164,7 +157,6 @@ namespace IO.Swagger.Models
         {
             var sb = new StringBuilder();
             sb.Append("class InvoiceItemResource {\n");
-            sb.Append("  AffiliateId: ").Append(AffiliateId).Append("\n");
             sb.Append("  BundleSku: ").Append(BundleSku).Append("\n");
             sb.Append("  CurrentFulfillmentStatus: ").Append(CurrentFulfillmentStatus).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
@@ -219,11 +211,6 @@ namespace IO.Swagger.Models
             if (ReferenceEquals(this, other)) return true;
 
             return 
-                (
-                    this.AffiliateId == other.AffiliateId ||
-                    this.AffiliateId != null &&
-                    this.AffiliateId.Equals(other.AffiliateId)
-                ) && 
                 (
                     this.BundleSku == other.BundleSku ||
                     this.BundleSku != null &&
@@ -317,8 +304,6 @@ namespace IO.Swagger.Models
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                    if (this.AffiliateId != null)
-                    hash = hash * 59 + this.AffiliateId.GetHashCode();
                     if (this.BundleSku != null)
                     hash = hash * 59 + this.BundleSku.GetHashCode();
                     if (this.CurrentFulfillmentStatus != null)

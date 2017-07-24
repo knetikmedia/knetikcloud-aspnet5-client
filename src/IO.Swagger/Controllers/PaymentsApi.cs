@@ -1,7 +1,7 @@
 /*
  * Knetik Platform API Documentation latest 
  *
- * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+ * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
  *
  * OpenAPI spec version: latest 
  * Contact: support@knetik.com
@@ -106,6 +106,10 @@ namespace IO.Swagger.Controllers
         /// </summary>
         
         /// <param name="userId">ID of the user for whom the payment methods are being retrieved</param>
+        /// <param name="filterName">Filter for payment methods whose name starts with a given string</param>
+        /// <param name="filterPaymentType">Filter for payment methods with a specific payment type</param>
+        /// <param name="filterPaymentMethodTypeId">Filter for payment methods with a specific payment method type by id</param>
+        /// <param name="filterPaymentMethodTypeName">Filter for payment methods whose payment method type name starts with a given string</param>
         /// <param name="size">The number of objects returned per page</param>
         /// <param name="page">The number of the page returned, starting with 1</param>
         /// <param name="order">a comma separated list of sorting requirements in priority order, each entry matching PROPERTY_NAME:[ASC|DESC]</param>
@@ -118,7 +122,7 @@ namespace IO.Swagger.Controllers
         [Route("//users/{user_id}/payment-methods")]
         [SwaggerOperation("GetPaymentMethods")]
         [SwaggerResponse(200, type: typeof(List<PaymentMethodResource>))]
-        public virtual IActionResult GetPaymentMethods([FromRoute]int? userId, [FromQuery]int? size, [FromQuery]int? page, [FromQuery]string order)
+        public virtual IActionResult GetPaymentMethods([FromRoute]int? userId, [FromQuery]string filterName, [FromQuery]string filterPaymentType, [FromQuery]int? filterPaymentMethodTypeId, [FromQuery]string filterPaymentMethodTypeName, [FromQuery]int? size, [FromQuery]int? page, [FromQuery]string order)
         { 
             string exampleJson = null;
             

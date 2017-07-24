@@ -1,7 +1,7 @@
 /*
  * Knetik Platform API Documentation latest 
  *
- * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+ * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
  *
  * OpenAPI spec version: latest 
  * Contact: support@knetik.com
@@ -22,10 +22,10 @@ namespace IO.Swagger.Models
 {
 
     /// <summary>
-    /// 
+    /// A occurrence of an activity (the actual game for example). Used to track scores, participants, and provide settings
     /// </summary>
     [DataContract]
-    public partial class AOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings :  IEquatable<AOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings>
+    public partial class ActivityOccurrenceResource :  IEquatable<ActivityOccurrenceResource>
     {
                 /// <summary>
         /// Indicate if the rewards have been given out already
@@ -109,7 +109,7 @@ namespace IO.Swagger.Models
         public StatusEnum? Status { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings" /> class.
+        /// Initializes a new instance of the <see cref="ActivityOccurrenceResource" /> class.
         /// </summary>
         /// <param name="ActivityId">The id of the activity (required).</param>
         /// <param name="ChallengeActivityId">The id of the challenge activity (as part of the event, required if eventId set).</param>
@@ -124,12 +124,12 @@ namespace IO.Swagger.Models
         /// <param name="Status">The current status of the occurrence (default: OPEN).</param>
         /// <param name="UpdatedDate">The date this occurrence was last updated, unix timestamp in seconds.</param>
         /// <param name="Users">The list of users participating in this occurrence. Can only be set directly with ACTIVITIES_ADMIN permission.</param>
-        public AOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings(long? ActivityId = default(long?), long? ChallengeActivityId = default(long?), ActivityEntitlementResource Entitlement = default(ActivityEntitlementResource), long? EventId = default(long?), List<SelectedSettingResource> Settings = default(List<SelectedSettingResource>), bool? Simulated = default(bool?), StatusEnum? Status = default(StatusEnum?), List<ActivityUserResource> Users = default(List<ActivityUserResource>))
+        public ActivityOccurrenceResource(long? ActivityId = default(long?), long? ChallengeActivityId = default(long?), ActivityEntitlementResource Entitlement = default(ActivityEntitlementResource), long? EventId = default(long?), List<SelectedSettingResource> Settings = default(List<SelectedSettingResource>), bool? Simulated = default(bool?), StatusEnum? Status = default(StatusEnum?), List<ActivityUserResource> Users = default(List<ActivityUserResource>))
         {
             // to ensure "ActivityId" is required (not null)
             if (ActivityId == null)
             {
-                throw new InvalidDataException("ActivityId is a required property for AOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings and cannot be null");
+                throw new InvalidDataException("ActivityId is a required property for ActivityOccurrenceResource and cannot be null");
             }
             else
             {
@@ -224,7 +224,7 @@ namespace IO.Swagger.Models
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class AOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings {\n");
+            sb.Append("class ActivityOccurrenceResource {\n");
             sb.Append("  ActivityId: ").Append(ActivityId).Append("\n");
             sb.Append("  ChallengeActivityId: ").Append(ChallengeActivityId).Append("\n");
             sb.Append("  CreatedDate: ").Append(CreatedDate).Append("\n");
@@ -261,15 +261,15 @@ namespace IO.Swagger.Models
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
             if (obj.GetType() != GetType()) return false;
-            return Equals((AOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings)obj);
+            return Equals((ActivityOccurrenceResource)obj);
         }
 
         /// <summary>
-        /// Returns true if AOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings instances are equal
+        /// Returns true if ActivityOccurrenceResource instances are equal
         /// </summary>
-        /// <param name="other">Instance of AOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings to be compared</param>
+        /// <param name="other">Instance of ActivityOccurrenceResource to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(AOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings other)
+        public bool Equals(ActivityOccurrenceResource other)
         {
 
             if (ReferenceEquals(null, other)) return false;
@@ -386,12 +386,12 @@ namespace IO.Swagger.Models
 
         #region Operators
 
-        public static bool operator ==(AOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings left, AOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings right)
+        public static bool operator ==(ActivityOccurrenceResource left, ActivityOccurrenceResource right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(AOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings left, AOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings right)
+        public static bool operator !=(ActivityOccurrenceResource left, ActivityOccurrenceResource right)
         {
             return !Equals(left, right);
         }

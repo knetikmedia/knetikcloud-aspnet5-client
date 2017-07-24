@@ -1,7 +1,7 @@
 /*
  * Knetik Platform API Documentation latest 
  *
- * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+ * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
  *
  * OpenAPI spec version: latest 
  * Contact: support@knetik.com
@@ -186,6 +186,27 @@ namespace IO.Swagger.Controllers
         [Route("//users/{user_id}/subscriptions/{inventory_id}/plan")]
         [SwaggerOperation("SetUserSubscriptionPlan")]
         public virtual void SetUserSubscriptionPlan([FromRoute]int? userId, [FromRoute]int? inventoryId, [FromBody]string planId)
+        { 
+            throw new NotImplementedException();
+        }
+
+
+        /// <summary>
+        /// Set a new subscription price for a user
+        /// </summary>
+        /// <remarks>This new price will be what the user is charged at the begining of each new period. This override is specific to the current subscription and will not carry over if they end and later re-subscribe. It will persist if the plan is changed using the setUserSubscriptionPlan endpoint.</remarks>
+        /// <param name="userId">The id of the user</param>
+        /// <param name="inventoryId">The id of the user&#39;s inventory</param>
+        /// <param name="theOverrideDetails">override</param>
+        /// <response code="204">No Content</response>
+        /// <response code="400">Bad Request</response>
+        /// <response code="401">Unauthorized</response>
+        /// <response code="403">Forbidden</response>
+        /// <response code="404">Not Found</response>
+        [HttpPut]
+        [Route("//users/{user_id}/subscriptions/{inventory_id}/price-override")]
+        [SwaggerOperation("SetUserSubscriptionPrice")]
+        public virtual void SetUserSubscriptionPrice([FromRoute]int? userId, [FromRoute]int? inventoryId, [FromBody]SubscriptionPriceOverrideRequest theOverrideDetails)
         { 
             throw new NotImplementedException();
         }

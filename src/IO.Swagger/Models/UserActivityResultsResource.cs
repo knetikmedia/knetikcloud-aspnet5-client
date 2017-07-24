@@ -1,7 +1,7 @@
 /*
  * Knetik Platform API Documentation latest 
  *
- * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+ * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
  *
  * OpenAPI spec version: latest 
  * Contact: support@knetik.com
@@ -31,55 +31,29 @@ namespace IO.Swagger.Models
         /// <summary>
         /// Initializes a new instance of the <see cref="UserActivityResultsResource" /> class.
         /// </summary>
-        /// <param name="CurrencyRewards">Any currency rewarded to this user.</param>
-        /// <param name="ItemRewards">Any items rewarded to this user.</param>
-        /// <param name="Rank">The position of the user in the leaderboard. Null means non-compete or disqualification.</param>
-        /// <param name="Score">The raw score in this leaderboard. Null means non-compete or disqualification.</param>
+        /// <param name="Score">The raw score. Null means non-compete or disqualification.</param>
         /// <param name="Tags">Any tags for the metric. Each unique tag will translate into a unique leaderboard. Maximum 5 tags and 50 characters each.</param>
-        /// <param name="Ties">The number of users tied at this rank, including this user. 1 means no tie.</param>
-        /// <param name="User">The player for this entry (required).</param>
-        public UserActivityResultsResource(List<RewardCurrencyResource> CurrencyRewards = default(List<RewardCurrencyResource>), List<RewardItemResource> ItemRewards = default(List<RewardItemResource>), long? Rank = default(long?), long? Score = default(long?), List<string> Tags = default(List<string>), SimpleUserResource User = default(SimpleUserResource))
+        /// <param name="UserId">The id of the player (required).</param>
+        public UserActivityResultsResource(long? Score = default(long?), List<string> Tags = default(List<string>), int? UserId = default(int?))
         {
-            // to ensure "User" is required (not null)
-            if (User == null)
+            // to ensure "UserId" is required (not null)
+            if (UserId == null)
             {
-                throw new InvalidDataException("User is a required property for UserActivityResultsResource and cannot be null");
+                throw new InvalidDataException("UserId is a required property for UserActivityResultsResource and cannot be null");
             }
             else
             {
-                this.User = User;
+                this.UserId = UserId;
             }
-            this.CurrencyRewards = CurrencyRewards;
-            this.ItemRewards = ItemRewards;
-            this.Rank = Rank;
             this.Score = Score;
             this.Tags = Tags;
-            this.Ties = Ties;
             
         }
 
         /// <summary>
-        /// Any currency rewarded to this user
+        /// The raw score. Null means non-compete or disqualification
         /// </summary>
-        /// <value>Any currency rewarded to this user</value>
-        [DataMember(Name="currency_rewards")]
-        public List<RewardCurrencyResource> CurrencyRewards { get; set; }
-        /// <summary>
-        /// Any items rewarded to this user
-        /// </summary>
-        /// <value>Any items rewarded to this user</value>
-        [DataMember(Name="item_rewards")]
-        public List<RewardItemResource> ItemRewards { get; set; }
-        /// <summary>
-        /// The position of the user in the leaderboard. Null means non-compete or disqualification
-        /// </summary>
-        /// <value>The position of the user in the leaderboard. Null means non-compete or disqualification</value>
-        [DataMember(Name="rank")]
-        public long? Rank { get; set; }
-        /// <summary>
-        /// The raw score in this leaderboard. Null means non-compete or disqualification
-        /// </summary>
-        /// <value>The raw score in this leaderboard. Null means non-compete or disqualification</value>
+        /// <value>The raw score. Null means non-compete or disqualification</value>
         [DataMember(Name="score")]
         public long? Score { get; set; }
         /// <summary>
@@ -89,17 +63,11 @@ namespace IO.Swagger.Models
         [DataMember(Name="tags")]
         public List<string> Tags { get; set; }
         /// <summary>
-        /// The number of users tied at this rank, including this user. 1 means no tie
+        /// The id of the player
         /// </summary>
-        /// <value>The number of users tied at this rank, including this user. 1 means no tie</value>
-        [DataMember(Name="ties")]
-        public int? Ties { get; private set; }
-        /// <summary>
-        /// The player for this entry
-        /// </summary>
-        /// <value>The player for this entry</value>
-        [DataMember(Name="user")]
-        public SimpleUserResource User { get; set; }
+        /// <value>The id of the player</value>
+        [DataMember(Name="user_id")]
+        public int? UserId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -109,13 +77,9 @@ namespace IO.Swagger.Models
         {
             var sb = new StringBuilder();
             sb.Append("class UserActivityResultsResource {\n");
-            sb.Append("  CurrencyRewards: ").Append(CurrencyRewards).Append("\n");
-            sb.Append("  ItemRewards: ").Append(ItemRewards).Append("\n");
-            sb.Append("  Rank: ").Append(Rank).Append("\n");
             sb.Append("  Score: ").Append(Score).Append("\n");
             sb.Append("  Tags: ").Append(Tags).Append("\n");
-            sb.Append("  Ties: ").Append(Ties).Append("\n");
-            sb.Append("  User: ").Append(User).Append("\n");
+            sb.Append("  UserId: ").Append(UserId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -155,21 +119,6 @@ namespace IO.Swagger.Models
 
             return 
                 (
-                    this.CurrencyRewards == other.CurrencyRewards ||
-                    this.CurrencyRewards != null &&
-                    this.CurrencyRewards.SequenceEqual(other.CurrencyRewards)
-                ) && 
-                (
-                    this.ItemRewards == other.ItemRewards ||
-                    this.ItemRewards != null &&
-                    this.ItemRewards.SequenceEqual(other.ItemRewards)
-                ) && 
-                (
-                    this.Rank == other.Rank ||
-                    this.Rank != null &&
-                    this.Rank.Equals(other.Rank)
-                ) && 
-                (
                     this.Score == other.Score ||
                     this.Score != null &&
                     this.Score.Equals(other.Score)
@@ -180,14 +129,9 @@ namespace IO.Swagger.Models
                     this.Tags.SequenceEqual(other.Tags)
                 ) && 
                 (
-                    this.Ties == other.Ties ||
-                    this.Ties != null &&
-                    this.Ties.Equals(other.Ties)
-                ) && 
-                (
-                    this.User == other.User ||
-                    this.User != null &&
-                    this.User.Equals(other.User)
+                    this.UserId == other.UserId ||
+                    this.UserId != null &&
+                    this.UserId.Equals(other.UserId)
                 );
         }
 
@@ -202,20 +146,12 @@ namespace IO.Swagger.Models
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                    if (this.CurrencyRewards != null)
-                    hash = hash * 59 + this.CurrencyRewards.GetHashCode();
-                    if (this.ItemRewards != null)
-                    hash = hash * 59 + this.ItemRewards.GetHashCode();
-                    if (this.Rank != null)
-                    hash = hash * 59 + this.Rank.GetHashCode();
                     if (this.Score != null)
                     hash = hash * 59 + this.Score.GetHashCode();
                     if (this.Tags != null)
                     hash = hash * 59 + this.Tags.GetHashCode();
-                    if (this.Ties != null)
-                    hash = hash * 59 + this.Ties.GetHashCode();
-                    if (this.User != null)
-                    hash = hash * 59 + this.User.GetHashCode();
+                    if (this.UserId != null)
+                    hash = hash * 59 + this.UserId.GetHashCode();
                 return hash;
             }
         }

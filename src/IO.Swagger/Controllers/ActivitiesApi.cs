@@ -1,7 +1,7 @@
 /*
  * Knetik Platform API Documentation latest 
  *
- * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+ * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
  *
  * OpenAPI spec version: latest 
  * Contact: support@knetik.com
@@ -42,14 +42,14 @@ namespace IO.Swagger.Controllers
         [HttpPost]
         [Route("//activities")]
         [SwaggerOperation("CreateActivity")]
-        [SwaggerResponse(200, type: typeof(RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc))]
-        public virtual IActionResult CreateActivity([FromBody]RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc activityResource)
+        [SwaggerResponse(200, type: typeof(ActivityResource))]
+        public virtual IActionResult CreateActivity([FromBody]ActivityResource activityResource)
         { 
             string exampleJson = null;
             
             var example = exampleJson != null
-            ? JsonConvert.DeserializeObject<RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc>(exampleJson)
-            : default(RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc);
+            ? JsonConvert.DeserializeObject<ActivityResource>(exampleJson)
+            : default(ActivityResource);
             return new ObjectResult(example);
         }
 
@@ -68,14 +68,14 @@ namespace IO.Swagger.Controllers
         [HttpPost]
         [Route("//activity-occurrences")]
         [SwaggerOperation("CreateActivityOccurrence")]
-        [SwaggerResponse(200, type: typeof(AOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings))]
-        public virtual IActionResult CreateActivityOccurrence([FromQuery]bool? test, [FromBody]AOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings activityOccurrenceResource)
+        [SwaggerResponse(200, type: typeof(ActivityOccurrenceResource))]
+        public virtual IActionResult CreateActivityOccurrence([FromQuery]bool? test, [FromBody]ActivityOccurrenceResource activityOccurrenceResource)
         { 
             string exampleJson = null;
             
             var example = exampleJson != null
-            ? JsonConvert.DeserializeObject<AOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings>(exampleJson)
-            : default(AOccurrenceOfAnActivityTheActualGameForExampleUsedToTrackScoresParticipantsAndProvideSettings);
+            ? JsonConvert.DeserializeObject<ActivityOccurrenceResource>(exampleJson)
+            : default(ActivityOccurrenceResource);
             return new ObjectResult(example);
         }
 
@@ -163,7 +163,7 @@ namespace IO.Swagger.Controllers
         [Route("//activities")]
         [SwaggerOperation("GetActivities")]
         [SwaggerResponse(200, type: typeof(PageResourceBareActivityResource))]
-        public virtual IActionResult GetActivities([FromQuery]bool? filterTemplate, [FromQuery]string filterName, [FromQuery]Object filterId, [FromQuery]int? size, [FromQuery]int? page, [FromQuery]string order)
+        public virtual IActionResult GetActivities([FromQuery]bool? filterTemplate, [FromQuery]string filterName, [FromQuery]string filterId, [FromQuery]int? size, [FromQuery]int? page, [FromQuery]string order)
         { 
             string exampleJson = null;
             
@@ -187,14 +187,14 @@ namespace IO.Swagger.Controllers
         [HttpGet]
         [Route("//activities/{id}")]
         [SwaggerOperation("GetActivity")]
-        [SwaggerResponse(200, type: typeof(RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc))]
+        [SwaggerResponse(200, type: typeof(ActivityResource))]
         public virtual IActionResult GetActivity([FromRoute]long? id)
         { 
             string exampleJson = null;
             
             var example = exampleJson != null
-            ? JsonConvert.DeserializeObject<RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc>(exampleJson)
-            : default(RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc);
+            ? JsonConvert.DeserializeObject<ActivityResource>(exampleJson)
+            : default(ActivityResource);
             return new ObjectResult(example);
         }
 
@@ -266,7 +266,7 @@ namespace IO.Swagger.Controllers
         [Route("//activity-occurrences/{activity_occurrence_id}/results")]
         [SwaggerOperation("SetActivityOccurrenceResults")]
         [SwaggerResponse(200, type: typeof(ActivityOccurrenceResults))]
-        public virtual IActionResult SetActivityOccurrenceResults([FromRoute]long? activityOccurrenceId, [FromBody]ActivityOccurrenceResults activityOccurrenceResults)
+        public virtual IActionResult SetActivityOccurrenceResults([FromRoute]long? activityOccurrenceId, [FromBody]ActivityOccurrenceResultsResource activityOccurrenceResults)
         { 
             string exampleJson = null;
             
@@ -291,14 +291,14 @@ namespace IO.Swagger.Controllers
         [HttpPut]
         [Route("//activities/{id}")]
         [SwaggerOperation("UpdateActivity")]
-        [SwaggerResponse(200, type: typeof(RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc))]
-        public virtual IActionResult UpdateActivity([FromRoute]long? id, [FromBody]RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc activityResource)
+        [SwaggerResponse(200, type: typeof(ActivityResource))]
+        public virtual IActionResult UpdateActivity([FromRoute]long? id, [FromBody]ActivityResource activityResource)
         { 
             string exampleJson = null;
             
             var example = exampleJson != null
-            ? JsonConvert.DeserializeObject<RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc>(exampleJson)
-            : default(RepresentsAnActivityThatCanBeParameterizedAndTrackedThroughMetricsScoresEtc);
+            ? JsonConvert.DeserializeObject<ActivityResource>(exampleJson)
+            : default(ActivityResource);
             return new ObjectResult(example);
         }
 

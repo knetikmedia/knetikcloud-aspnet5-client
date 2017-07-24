@@ -1,7 +1,7 @@
 /*
  * Knetik Platform API Documentation latest 
  *
- * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+ * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
  *
  * OpenAPI spec version: latest 
  * Contact: support@knetik.com
@@ -35,7 +35,7 @@ namespace IO.Swagger.Models
         /// <param name="PrerequisiteBehaviors">Pre-requisite behaviors that an item must have in order to also have this behavior.</param>
         /// <param name="Properties">Configurable properties of the behavior (required).</param>
         /// <param name="TypeHint">The behavior type (required).</param>
-        public BehaviorDefinitionResource(string Description = default(string), List<Behavior> PrerequisiteBehaviors = default(List<Behavior>), List<PropertyDefinitionResource> Properties = default(List<PropertyDefinitionResource>), string TypeHint = default(string))
+        public BehaviorDefinitionResource(string Description = default(string), List<Behavior> PrerequisiteBehaviors = default(List<Behavior>), List<PropertyFieldResource> Properties = default(List<PropertyFieldResource>), string TypeHint = default(string))
         {
             // to ensure "Properties" is required (not null)
             if (Properties == null)
@@ -77,7 +77,7 @@ namespace IO.Swagger.Models
         /// </summary>
         /// <value>Configurable properties of the behavior</value>
         [DataMember(Name="properties")]
-        public List<PropertyDefinitionResource> Properties { get; set; }
+        public List<PropertyFieldResource> Properties { get; set; }
         /// <summary>
         /// The behavior type
         /// </summary>

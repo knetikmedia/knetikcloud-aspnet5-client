@@ -1,7 +1,7 @@
 /*
  * Knetik Platform API Documentation latest 
  *
- * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+ * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
  *
  * OpenAPI spec version: latest 
  * Contact: support@knetik.com
@@ -30,10 +30,10 @@ namespace IO.Swagger.Controllers
     { 
 
         /// <summary>
-        /// Link facebook account
+        /// Link google account
         /// </summary>
-        /// <remarks>Links the current user account to a facebook account, using the acccess token from facebook. Can also be used to update the access token after it has expired.</remarks>
-        /// <param name="facebookToken">The token from facebook</param>
+        /// <remarks>Links the current user account to a google account, using the acccess token from google. Can also be used to update the access token after it has expired.</remarks>
+        /// <param name="googleToken">The token from google</param>
         /// <response code="202">Accepted</response>
         /// <response code="400">Bad Request</response>
         /// <response code="401">Unauthorized</response>
@@ -42,7 +42,7 @@ namespace IO.Swagger.Controllers
         [HttpPost]
         [Route("//social/google/users")]
         [SwaggerOperation("LinkAccounts1")]
-        public virtual void LinkAccounts1([FromBody]GoogleToken facebookToken)
+        public virtual void LinkAccounts1([FromBody]GoogleToken googleToken)
         { 
             throw new NotImplementedException();
         }

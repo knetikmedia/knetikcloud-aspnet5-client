@@ -1,7 +1,7 @@
 /*
  * Knetik Platform API Documentation latest 
  *
- * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+ * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
  *
  * OpenAPI spec version: latest 
  * Contact: support@knetik.com
@@ -48,6 +48,7 @@ namespace IO.Swagger.Models
         /// <param name="Gender">The user&#39;s gender (private).</param>
         /// <param name="Id">The id of the user.</param>
         /// <param name="LanguageCode">The ISO3 code for the user&#39;s currency (private).</param>
+        /// <param name="LastActivity">The date the user last interacted with the API (private).</param>
         /// <param name="LastName">The user&#39;s last name (private).</param>
         /// <param name="LastUpdated">The date the user&#39;s info was last updated as a unix timestamp.</param>
         /// <param name="MemberSince">The user&#39;s date of registration as a unix timestamp.</param>
@@ -96,6 +97,7 @@ namespace IO.Swagger.Models
             this.Gender = Gender;
             this.Id = Id;
             this.LanguageCode = LanguageCode;
+            this.LastActivity = LastActivity;
             this.LastName = LastName;
             this.LastUpdated = LastUpdated;
             this.MemberSince = MemberSince;
@@ -213,6 +215,12 @@ namespace IO.Swagger.Models
         [DataMember(Name="language_code")]
         public string LanguageCode { get; set; }
         /// <summary>
+        /// The date the user last interacted with the API (private)
+        /// </summary>
+        /// <value>The date the user last interacted with the API (private)</value>
+        [DataMember(Name="last_activity")]
+        public long? LastActivity { get; private set; }
+        /// <summary>
         /// The user&#39;s last name (private)
         /// </summary>
         /// <value>The user&#39;s last name (private)</value>
@@ -310,6 +318,7 @@ namespace IO.Swagger.Models
             sb.Append("  Gender: ").Append(Gender).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  LanguageCode: ").Append(LanguageCode).Append("\n");
+            sb.Append("  LastActivity: ").Append(LastActivity).Append("\n");
             sb.Append("  LastName: ").Append(LastName).Append("\n");
             sb.Append("  LastUpdated: ").Append(LastUpdated).Append("\n");
             sb.Append("  MemberSince: ").Append(MemberSince).Append("\n");
@@ -446,6 +455,11 @@ namespace IO.Swagger.Models
                     this.LanguageCode.Equals(other.LanguageCode)
                 ) && 
                 (
+                    this.LastActivity == other.LastActivity ||
+                    this.LastActivity != null &&
+                    this.LastActivity.Equals(other.LastActivity)
+                ) && 
+                (
                     this.LastName == other.LastName ||
                     this.LastName != null &&
                     this.LastName.Equals(other.LastName)
@@ -552,6 +566,8 @@ namespace IO.Swagger.Models
                     hash = hash * 59 + this.Id.GetHashCode();
                     if (this.LanguageCode != null)
                     hash = hash * 59 + this.LanguageCode.GetHashCode();
+                    if (this.LastActivity != null)
+                    hash = hash * 59 + this.LastActivity.GetHashCode();
                     if (this.LastName != null)
                     hash = hash * 59 + this.LastName.GetHashCode();
                     if (this.LastUpdated != null)

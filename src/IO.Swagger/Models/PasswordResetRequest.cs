@@ -1,7 +1,7 @@
 /*
  * Knetik Platform API Documentation latest 
  *
- * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+ * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
  *
  * OpenAPI spec version: latest 
  * Contact: support@knetik.com
@@ -22,19 +22,19 @@ namespace IO.Swagger.Models
 {
 
     /// <summary>
-    /// 
+    /// A request to reset a user&#39;s password by using a known user property
     /// </summary>
     [DataContract]
-    public partial class ARequestToResetAUsersPasswordByUsingAKnownUserProperty :  IEquatable<ARequestToResetAUsersPasswordByUsingAKnownUserProperty>
+    public partial class PasswordResetRequest :  IEquatable<PasswordResetRequest>
     {
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ARequestToResetAUsersPasswordByUsingAKnownUserProperty" /> class.
+        /// Initializes a new instance of the <see cref="PasswordResetRequest" /> class.
         /// </summary>
         /// <param name="Email">The user&#39;s email address.</param>
         /// <param name="MobileNumber">The user&#39;s mobile phone number.</param>
         /// <param name="Username">The user&#39;s username.</param>
-        public ARequestToResetAUsersPasswordByUsingAKnownUserProperty(string Email = default(string), string MobileNumber = default(string), string Username = default(string))
+        public PasswordResetRequest(string Email = default(string), string MobileNumber = default(string), string Username = default(string))
         {
             this.Email = Email;
             this.MobileNumber = MobileNumber;
@@ -68,7 +68,7 @@ namespace IO.Swagger.Models
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ARequestToResetAUsersPasswordByUsingAKnownUserProperty {\n");
+            sb.Append("class PasswordResetRequest {\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  MobileNumber: ").Append(MobileNumber).Append("\n");
             sb.Append("  Username: ").Append(Username).Append("\n");
@@ -95,15 +95,15 @@ namespace IO.Swagger.Models
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
             if (obj.GetType() != GetType()) return false;
-            return Equals((ARequestToResetAUsersPasswordByUsingAKnownUserProperty)obj);
+            return Equals((PasswordResetRequest)obj);
         }
 
         /// <summary>
-        /// Returns true if ARequestToResetAUsersPasswordByUsingAKnownUserProperty instances are equal
+        /// Returns true if PasswordResetRequest instances are equal
         /// </summary>
-        /// <param name="other">Instance of ARequestToResetAUsersPasswordByUsingAKnownUserProperty to be compared</param>
+        /// <param name="other">Instance of PasswordResetRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ARequestToResetAUsersPasswordByUsingAKnownUserProperty other)
+        public bool Equals(PasswordResetRequest other)
         {
 
             if (ReferenceEquals(null, other)) return false;
@@ -150,12 +150,12 @@ namespace IO.Swagger.Models
 
         #region Operators
 
-        public static bool operator ==(ARequestToResetAUsersPasswordByUsingAKnownUserProperty left, ARequestToResetAUsersPasswordByUsingAKnownUserProperty right)
+        public static bool operator ==(PasswordResetRequest left, PasswordResetRequest right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(ARequestToResetAUsersPasswordByUsingAKnownUserProperty left, ARequestToResetAUsersPasswordByUsingAKnownUserProperty right)
+        public static bool operator !=(PasswordResetRequest left, PasswordResetRequest right)
         {
             return !Equals(left, right);
         }

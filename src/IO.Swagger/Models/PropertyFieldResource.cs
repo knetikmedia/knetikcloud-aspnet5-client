@@ -1,7 +1,7 @@
 /*
  * Knetik Platform API Documentation latest 
  *
- * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+ * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
  *
  * OpenAPI spec version: latest 
  * Contact: support@knetik.com
@@ -126,9 +126,9 @@ namespace IO.Swagger.Models
             ObjectEnum
         }
         /// <summary>
-        /// The type of values within a 'list' type field
+        /// The type of values within a &#39;list&#39; type field
         /// </summary>
-        /// <value>The type of values within a 'list' type field</value>
+        /// <value>The type of values within a &#39;list&#39; type field</value>
         [DataMember(Name="inner_type")]
         public InnerTypeEnum? InnerType { get; set; }
         /// <summary>

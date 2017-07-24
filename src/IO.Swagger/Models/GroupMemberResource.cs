@@ -1,7 +1,7 @@
 /*
  * Knetik Platform API Documentation latest 
  *
- * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+ * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
  *
  * OpenAPI spec version: latest 
  * Contact: support@knetik.com
@@ -47,9 +47,9 @@ namespace IO.Swagger.Models
             MemberEnum
         }
         /// <summary>
-        /// The member's access level. Default: member
+        /// The member&#39;s access level. Default: member
         /// </summary>
-        /// <value>The member's access level. Default: member</value>
+        /// <value>The member&#39;s access level. Default: member</value>
         [DataMember(Name="status")]
         public StatusEnum? Status { get; set; }
 
@@ -59,7 +59,7 @@ namespace IO.Swagger.Models
         /// <param name="AvatarUrl">The url of the user&#39;s avatar image.</param>
         /// <param name="DisplayName">The public username of the user.</param>
         /// <param name="Id">The id of the user (required).</param>
-        /// <param name="Status">The member&#39;s access level. Default: member (required).</param>
+        /// <param name="Status">The member&#39;s access level. Default: member.</param>
         /// <param name="Username">The username of the user.</param>
         public GroupMemberResource(int? Id = default(int?), StatusEnum? Status = default(StatusEnum?))
         {
@@ -72,17 +72,9 @@ namespace IO.Swagger.Models
             {
                 this.Id = Id;
             }
-            // to ensure "Status" is required (not null)
-            if (Status == null)
-            {
-                throw new InvalidDataException("Status is a required property for GroupMemberResource and cannot be null");
-            }
-            else
-            {
-                this.Status = Status;
-            }
             this.AvatarUrl = AvatarUrl;
             this.DisplayName = DisplayName;
+            this.Status = Status;
             this.Username = Username;
             
         }

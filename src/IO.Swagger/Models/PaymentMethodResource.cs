@@ -1,7 +1,7 @@
 /*
  * Knetik Platform API Documentation latest 
  *
- * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+ * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
  *
  * OpenAPI spec version: latest 
  * Contact: support@knetik.com
@@ -62,20 +62,18 @@ namespace IO.Swagger.Models
         /// <param name="ExpirationDate">The expiration date for the payment method, expressed as seconds since epoch. Typically used for credit card payment methods.</param>
         /// <param name="ExpirationMonth">The expiration month (1 - 12) for the payment method. Typically used for credit card payment methods.</param>
         /// <param name="ExpirationYear">The expiration year for the payment method. Typically used for credit card payment methods.</param>
-        /// <param name="Id">The unique ID for that resource.</param>
+        /// <param name="Id">The unique ID of the resource.</param>
         /// <param name="Last4">The last 4 digits of the account number for the payment method. Typically used for credit card payment methods.</param>
-        /// <param name="LongDescription">The user friendly name of that resource. Defaults to blank string.</param>
-        /// <param name="Name">The user friendly name of that resource (required).</param>
+        /// <param name="Name">The user friendly name of the resource (required).</param>
         /// <param name="PaymentMethodType">The type of payment method. Must be a pre-existing value (required).</param>
         /// <param name="PaymentType">The generic payment type. Default is card.</param>
-        /// <param name="ShortDescription">The user friendly name of that resource. Defaults to blank string.</param>
         /// <param name="Sort">The sort value for the payment method.</param>
         /// <param name="Token">The unique token for the payment method.</param>
         /// <param name="UniqueKey">An optional unique identifier.</param>
         /// <param name="UpdatedDate">The date/time this resource was last updated in seconds since unix epoch.</param>
         /// <param name="UserId">The user&#39;s id. If null, indicates a shared payment method that any user can use (i.e., &#39;wallet&#39;).</param>
         /// <param name="Verified">Verified.</param>
-        public PaymentMethodResource(bool? Default = default(bool?), bool? Disabled = default(bool?), long? ExpirationDate = default(long?), int? ExpirationMonth = default(int?), int? ExpirationYear = default(int?), string Last4 = default(string), string LongDescription = default(string), string Name = default(string), PaymentMethodTypeResource PaymentMethodType = default(PaymentMethodTypeResource), PaymentTypeEnum? PaymentType = default(PaymentTypeEnum?), string ShortDescription = default(string), int? Sort = default(int?), string Token = default(string), string UniqueKey = default(string), int? UserId = default(int?), bool? Verified = default(bool?))
+        public PaymentMethodResource(bool? Default = default(bool?), bool? Disabled = default(bool?), long? ExpirationDate = default(long?), int? ExpirationMonth = default(int?), int? ExpirationYear = default(int?), string Last4 = default(string), string Name = default(string), PaymentMethodTypeResource PaymentMethodType = default(PaymentMethodTypeResource), PaymentTypeEnum? PaymentType = default(PaymentTypeEnum?), int? Sort = default(int?), string Token = default(string), string UniqueKey = default(string), int? UserId = default(int?), bool? Verified = default(bool?))
         {
             // to ensure "Name" is required (not null)
             if (Name == null)
@@ -103,9 +101,7 @@ namespace IO.Swagger.Models
             this.ExpirationYear = ExpirationYear;
             this.Id = Id;
             this.Last4 = Last4;
-            this.LongDescription = LongDescription;
             this.PaymentType = PaymentType;
-            this.ShortDescription = ShortDescription;
             this.Sort = Sort;
             this.Token = Token;
             this.UniqueKey = UniqueKey;
@@ -151,9 +147,9 @@ namespace IO.Swagger.Models
         [DataMember(Name="expiration_year")]
         public int? ExpirationYear { get; set; }
         /// <summary>
-        /// The unique ID for that resource
+        /// The unique ID of the resource
         /// </summary>
-        /// <value>The unique ID for that resource</value>
+        /// <value>The unique ID of the resource</value>
         [DataMember(Name="id")]
         public long? Id { get; private set; }
         /// <summary>
@@ -163,15 +159,9 @@ namespace IO.Swagger.Models
         [DataMember(Name="last4")]
         public string Last4 { get; set; }
         /// <summary>
-        /// The user friendly name of that resource. Defaults to blank string
+        /// The user friendly name of the resource
         /// </summary>
-        /// <value>The user friendly name of that resource. Defaults to blank string</value>
-        [DataMember(Name="long_description")]
-        public string LongDescription { get; set; }
-        /// <summary>
-        /// The user friendly name of that resource
-        /// </summary>
-        /// <value>The user friendly name of that resource</value>
+        /// <value>The user friendly name of the resource</value>
         [DataMember(Name="name")]
         public string Name { get; set; }
         /// <summary>
@@ -180,12 +170,6 @@ namespace IO.Swagger.Models
         /// <value>The type of payment method. Must be a pre-existing value</value>
         [DataMember(Name="payment_method_type")]
         public PaymentMethodTypeResource PaymentMethodType { get; set; }
-        /// <summary>
-        /// The user friendly name of that resource. Defaults to blank string
-        /// </summary>
-        /// <value>The user friendly name of that resource. Defaults to blank string</value>
-        [DataMember(Name="short_description")]
-        public string ShortDescription { get; set; }
         /// <summary>
         /// The sort value for the payment method
         /// </summary>
@@ -238,11 +222,9 @@ namespace IO.Swagger.Models
             sb.Append("  ExpirationYear: ").Append(ExpirationYear).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Last4: ").Append(Last4).Append("\n");
-            sb.Append("  LongDescription: ").Append(LongDescription).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  PaymentMethodType: ").Append(PaymentMethodType).Append("\n");
             sb.Append("  PaymentType: ").Append(PaymentType).Append("\n");
-            sb.Append("  ShortDescription: ").Append(ShortDescription).Append("\n");
             sb.Append("  Sort: ").Append(Sort).Append("\n");
             sb.Append("  Token: ").Append(Token).Append("\n");
             sb.Append("  UniqueKey: ").Append(UniqueKey).Append("\n");
@@ -328,11 +310,6 @@ namespace IO.Swagger.Models
                     this.Last4.Equals(other.Last4)
                 ) && 
                 (
-                    this.LongDescription == other.LongDescription ||
-                    this.LongDescription != null &&
-                    this.LongDescription.Equals(other.LongDescription)
-                ) && 
-                (
                     this.Name == other.Name ||
                     this.Name != null &&
                     this.Name.Equals(other.Name)
@@ -346,11 +323,6 @@ namespace IO.Swagger.Models
                     this.PaymentType == other.PaymentType ||
                     this.PaymentType != null &&
                     this.PaymentType.Equals(other.PaymentType)
-                ) && 
-                (
-                    this.ShortDescription == other.ShortDescription ||
-                    this.ShortDescription != null &&
-                    this.ShortDescription.Equals(other.ShortDescription)
                 ) && 
                 (
                     this.Sort == other.Sort ||
@@ -411,16 +383,12 @@ namespace IO.Swagger.Models
                     hash = hash * 59 + this.Id.GetHashCode();
                     if (this.Last4 != null)
                     hash = hash * 59 + this.Last4.GetHashCode();
-                    if (this.LongDescription != null)
-                    hash = hash * 59 + this.LongDescription.GetHashCode();
                     if (this.Name != null)
                     hash = hash * 59 + this.Name.GetHashCode();
                     if (this.PaymentMethodType != null)
                     hash = hash * 59 + this.PaymentMethodType.GetHashCode();
                     if (this.PaymentType != null)
                     hash = hash * 59 + this.PaymentType.GetHashCode();
-                    if (this.ShortDescription != null)
-                    hash = hash * 59 + this.ShortDescription.GetHashCode();
                     if (this.Sort != null)
                     hash = hash * 59 + this.Sort.GetHashCode();
                     if (this.Token != null)

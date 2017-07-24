@@ -1,7 +1,7 @@
 /*
  * Knetik Platform API Documentation latest 
  *
- * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+ * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
  *
  * OpenAPI spec version: latest 
  * Contact: support@knetik.com
@@ -32,8 +32,9 @@ namespace IO.Swagger.Models
         /// Initializes a new instance of the <see cref="BreTriggerParameterDefinition" /> class.
         /// </summary>
         /// <param name="Name">The name of the parameter. This is used as the unique identifier of this parameter (required).</param>
+        /// <param name="Optional">Whether this parameter can be left off when firing the event. Default false.</param>
         /// <param name="Type">The variable type of this parameter. See Bre Variables endpoint for list (required).</param>
-        public BreTriggerParameterDefinition(string Name = default(string), string Type = default(string))
+        public BreTriggerParameterDefinition(string Name = default(string), bool? Optional = default(bool?), string Type = default(string))
         {
             // to ensure "Name" is required (not null)
             if (Name == null)
@@ -53,6 +54,7 @@ namespace IO.Swagger.Models
             {
                 this.Type = Type;
             }
+            this.Optional = Optional;
             
         }
 
@@ -62,6 +64,12 @@ namespace IO.Swagger.Models
         /// <value>The name of the parameter. This is used as the unique identifier of this parameter</value>
         [DataMember(Name="name")]
         public string Name { get; set; }
+        /// <summary>
+        /// Whether this parameter can be left off when firing the event. Default false
+        /// </summary>
+        /// <value>Whether this parameter can be left off when firing the event. Default false</value>
+        [DataMember(Name="optional")]
+        public bool? Optional { get; set; }
         /// <summary>
         /// The variable type of this parameter. See Bre Variables endpoint for list
         /// </summary>
@@ -78,6 +86,7 @@ namespace IO.Swagger.Models
             var sb = new StringBuilder();
             sb.Append("class BreTriggerParameterDefinition {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  Optional: ").Append(Optional).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -123,6 +132,11 @@ namespace IO.Swagger.Models
                     this.Name.Equals(other.Name)
                 ) && 
                 (
+                    this.Optional == other.Optional ||
+                    this.Optional != null &&
+                    this.Optional.Equals(other.Optional)
+                ) && 
+                (
                     this.Type == other.Type ||
                     this.Type != null &&
                     this.Type.Equals(other.Type)
@@ -142,6 +156,8 @@ namespace IO.Swagger.Models
                 // Suitable nullity checks etc, of course :)
                     if (this.Name != null)
                     hash = hash * 59 + this.Name.GetHashCode();
+                    if (this.Optional != null)
+                    hash = hash * 59 + this.Optional.GetHashCode();
                     if (this.Type != null)
                     hash = hash * 59 + this.Type.GetHashCode();
                 return hash;

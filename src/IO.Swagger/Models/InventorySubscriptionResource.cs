@@ -1,7 +1,7 @@
 /*
  * Knetik Platform API Documentation latest 
  *
- * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+ * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
  *
  * OpenAPI spec version: latest 
  * Contact: support@knetik.com
@@ -70,12 +70,14 @@ namespace IO.Swagger.Models
         /// <param name="InventoryStatus">The inventory status object.</param>
         /// <param name="ItemId">The id of the item.</param>
         /// <param name="PaymentMethod">The payment method object.</param>
-        /// <param name="RecurringPrice">The recurring price.</param>
-        /// <param name="Sku">The sku of the subscription.</param>
+        /// <param name="PriceOverride">The recurring price that has been set to override the base price. Null if not overriding.</param>
+        /// <param name="PriceOverrideReason">An explanation for the reason the price is being overridden.</param>
+        /// <param name="RecurringPrice">The default recurring price.</param>
+        /// <param name="Sku">The recurring sku of the subscription.</param>
         /// <param name="StartDate">The date the subscription will start.</param>
         /// <param name="SubscriptionStatus">The status of the subscription.</param>
         /// <param name="User">The user.</param>
-        public InventorySubscriptionResource(long? BillDate = default(long?), List<SubscriptionCreditResource> CreditLog = default(List<SubscriptionCreditResource>), long? GraceEnd = default(long?), int? InventoryId = default(int?), InventoryStatusEnum? InventoryStatus = default(InventoryStatusEnum?), int? ItemId = default(int?), PaymentMethodResource PaymentMethod = default(PaymentMethodResource), double? RecurringPrice = default(double?), string Sku = default(string), long? StartDate = default(long?), int? SubscriptionStatus = default(int?), SimpleUserResource User = default(SimpleUserResource))
+        public InventorySubscriptionResource(long? BillDate = default(long?), List<SubscriptionCreditResource> CreditLog = default(List<SubscriptionCreditResource>), long? GraceEnd = default(long?), int? InventoryId = default(int?), InventoryStatusEnum? InventoryStatus = default(InventoryStatusEnum?), int? ItemId = default(int?), PaymentMethodResource PaymentMethod = default(PaymentMethodResource), double? PriceOverride = default(double?), string PriceOverrideReason = default(string), double? RecurringPrice = default(double?), string Sku = default(string), long? StartDate = default(long?), int? SubscriptionStatus = default(int?), SimpleUserResource User = default(SimpleUserResource))
         {
             this.BillDate = BillDate;
             this.Credit = Credit;
@@ -85,6 +87,8 @@ namespace IO.Swagger.Models
             this.InventoryStatus = InventoryStatus;
             this.ItemId = ItemId;
             this.PaymentMethod = PaymentMethod;
+            this.PriceOverride = PriceOverride;
+            this.PriceOverrideReason = PriceOverrideReason;
             this.RecurringPrice = RecurringPrice;
             this.Sku = Sku;
             this.StartDate = StartDate;
@@ -136,15 +140,27 @@ namespace IO.Swagger.Models
         [DataMember(Name="payment_method")]
         public PaymentMethodResource PaymentMethod { get; set; }
         /// <summary>
-        /// The recurring price
+        /// The recurring price that has been set to override the base price. Null if not overriding
         /// </summary>
-        /// <value>The recurring price</value>
+        /// <value>The recurring price that has been set to override the base price. Null if not overriding</value>
+        [DataMember(Name="price_override")]
+        public double? PriceOverride { get; set; }
+        /// <summary>
+        /// An explanation for the reason the price is being overridden
+        /// </summary>
+        /// <value>An explanation for the reason the price is being overridden</value>
+        [DataMember(Name="price_override_reason")]
+        public string PriceOverrideReason { get; set; }
+        /// <summary>
+        /// The default recurring price
+        /// </summary>
+        /// <value>The default recurring price</value>
         [DataMember(Name="recurring_price")]
         public double? RecurringPrice { get; set; }
         /// <summary>
-        /// The sku of the subscription
+        /// The recurring sku of the subscription
         /// </summary>
-        /// <value>The sku of the subscription</value>
+        /// <value>The recurring sku of the subscription</value>
         [DataMember(Name="sku")]
         public string Sku { get; set; }
         /// <summary>
@@ -182,6 +198,8 @@ namespace IO.Swagger.Models
             sb.Append("  InventoryStatus: ").Append(InventoryStatus).Append("\n");
             sb.Append("  ItemId: ").Append(ItemId).Append("\n");
             sb.Append("  PaymentMethod: ").Append(PaymentMethod).Append("\n");
+            sb.Append("  PriceOverride: ").Append(PriceOverride).Append("\n");
+            sb.Append("  PriceOverrideReason: ").Append(PriceOverrideReason).Append("\n");
             sb.Append("  RecurringPrice: ").Append(RecurringPrice).Append("\n");
             sb.Append("  Sku: ").Append(Sku).Append("\n");
             sb.Append("  StartDate: ").Append(StartDate).Append("\n");
@@ -266,6 +284,16 @@ namespace IO.Swagger.Models
                     this.PaymentMethod.Equals(other.PaymentMethod)
                 ) && 
                 (
+                    this.PriceOverride == other.PriceOverride ||
+                    this.PriceOverride != null &&
+                    this.PriceOverride.Equals(other.PriceOverride)
+                ) && 
+                (
+                    this.PriceOverrideReason == other.PriceOverrideReason ||
+                    this.PriceOverrideReason != null &&
+                    this.PriceOverrideReason.Equals(other.PriceOverrideReason)
+                ) && 
+                (
                     this.RecurringPrice == other.RecurringPrice ||
                     this.RecurringPrice != null &&
                     this.RecurringPrice.Equals(other.RecurringPrice)
@@ -319,6 +347,10 @@ namespace IO.Swagger.Models
                     hash = hash * 59 + this.ItemId.GetHashCode();
                     if (this.PaymentMethod != null)
                     hash = hash * 59 + this.PaymentMethod.GetHashCode();
+                    if (this.PriceOverride != null)
+                    hash = hash * 59 + this.PriceOverride.GetHashCode();
+                    if (this.PriceOverrideReason != null)
+                    hash = hash * 59 + this.PriceOverrideReason.GetHashCode();
                     if (this.RecurringPrice != null)
                     hash = hash * 59 + this.RecurringPrice.GetHashCode();
                     if (this.Sku != null)

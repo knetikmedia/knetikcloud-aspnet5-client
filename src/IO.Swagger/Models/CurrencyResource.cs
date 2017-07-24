@@ -1,7 +1,7 @@
 /*
  * Knetik Platform API Documentation latest 
  *
- * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+ * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
  *
  * OpenAPI spec version: latest 
  * Contact: support@knetik.com
@@ -47,9 +47,9 @@ namespace IO.Swagger.Models
             VirtualEnum
         }
         /// <summary>
-        /// The type of currency. Default 'real'
+        /// The type of currency. Default &#39;real&#39;
         /// </summary>
-        /// <value>The type of currency. Default 'real'</value>
+        /// <value>The type of currency. Default &#39;real&#39;</value>
         [DataMember(Name="type")]
         public TypeEnum? Type { get; set; }
 

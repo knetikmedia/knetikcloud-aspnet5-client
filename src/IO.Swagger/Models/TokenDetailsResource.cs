@@ -1,7 +1,7 @@
 /*
  * Knetik Platform API Documentation latest 
  *
- * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+ * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
  *
  * OpenAPI spec version: latest 
  * Contact: support@knetik.com
@@ -31,15 +31,22 @@ namespace IO.Swagger.Models
         /// <summary>
         /// Initializes a new instance of the <see cref="TokenDetailsResource" /> class.
         /// </summary>
+        /// <param name="ClientId">ClientId.</param>
         /// <param name="Roles">Roles.</param>
         /// <param name="UserId">UserId.</param>
-        public TokenDetailsResource(List<string> Roles = default(List<string>), int? UserId = default(int?))
+        public TokenDetailsResource(string ClientId = default(string), List<string> Roles = default(List<string>), int? UserId = default(int?))
         {
+            this.ClientId = ClientId;
             this.Roles = Roles;
             this.UserId = UserId;
             
         }
 
+        /// <summary>
+        /// Gets or Sets ClientId
+        /// </summary>
+        [DataMember(Name="client_id")]
+        public string ClientId { get; set; }
         /// <summary>
         /// Gets or Sets Roles
         /// </summary>
@@ -59,6 +66,7 @@ namespace IO.Swagger.Models
         {
             var sb = new StringBuilder();
             sb.Append("class TokenDetailsResource {\n");
+            sb.Append("  ClientId: ").Append(ClientId).Append("\n");
             sb.Append("  Roles: ").Append(Roles).Append("\n");
             sb.Append("  UserId: ").Append(UserId).Append("\n");
             sb.Append("}\n");
@@ -100,6 +108,11 @@ namespace IO.Swagger.Models
 
             return 
                 (
+                    this.ClientId == other.ClientId ||
+                    this.ClientId != null &&
+                    this.ClientId.Equals(other.ClientId)
+                ) && 
+                (
                     this.Roles == other.Roles ||
                     this.Roles != null &&
                     this.Roles.SequenceEqual(other.Roles)
@@ -122,6 +135,8 @@ namespace IO.Swagger.Models
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                    if (this.ClientId != null)
+                    hash = hash * 59 + this.ClientId.GetHashCode();
                     if (this.Roles != null)
                     hash = hash * 59 + this.Roles.GetHashCode();
                     if (this.UserId != null)

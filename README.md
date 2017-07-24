@@ -1,6 +1,6 @@
 # IO.Swagger - ASP.NET Core 1.0 Server
 
-This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
 
 ## Run
 
@@ -20,6 +20,6 @@ build.bat
 
 ```
 cd src/IO.Swagger
-docker build -t IO.Swagger .
-docker run -p 5000:5000 IO.Swagger
+docker build -t io.swagger .
+docker run -p 5000:5000 io.swagger
 ```

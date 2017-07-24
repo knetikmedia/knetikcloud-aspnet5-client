@@ -1,7 +1,7 @@
 /*
  * Knetik Platform API Documentation latest 
  *
- * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+ * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
  *
  * OpenAPI spec version: latest 
  * Contact: support@knetik.com
@@ -350,7 +350,7 @@ namespace IO.Swagger.Controllers
         [HttpPost]
         [Route("//users/password-reset")]
         [SwaggerOperation("SubmitPasswordReset")]
-        public virtual void SubmitPasswordReset([FromBody]ARequestToResetAUsersPasswordByUsingAKnownUserProperty passwordReset)
+        public virtual void SubmitPasswordReset([FromBody]PasswordResetRequest passwordReset)
         { 
             throw new NotImplementedException();
         }

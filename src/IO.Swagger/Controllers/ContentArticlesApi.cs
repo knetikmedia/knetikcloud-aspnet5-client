@@ -1,7 +1,7 @@
 /*
  * Knetik Platform API Documentation latest 
  *
- * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+ * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
  *
  * OpenAPI spec version: latest 
  * Contact: support@knetik.com
@@ -200,7 +200,9 @@ namespace IO.Swagger.Controllers
         /// </summary>
         /// <remarks>Get a list of articles with optional filtering. Assets will not be filled in on the resources returned. Use &#39;Get a single article&#39; to retrieve the full resource with assets for a given item as needed.</remarks>
         /// <param name="filterCategory">Filter for articles from a specific category by id</param>
-        /// <param name="filterTagset">Filter for articles with specified tags (separated by comma)</param>
+        /// <param name="filterTagset">Filter for articles with at least one of a specified set of tags (separated by comma)</param>
+        /// <param name="filterTagIntersection">Filter for articles with all of a specified set of tags (separated by comma)</param>
+        /// <param name="filterTagExclusion">Filter for articles with none of a specified set of tags (separated by comma)</param>
         /// <param name="filterTitle">Filter for articles whose title contains a string</param>
         /// <param name="size">The number of objects returned per page</param>
         /// <param name="page">The number of the page returned, starting with 1</param>
@@ -214,7 +216,7 @@ namespace IO.Swagger.Controllers
         [Route("//content/articles")]
         [SwaggerOperation("GetArticles")]
         [SwaggerResponse(200, type: typeof(PageResourceArticleResource))]
-        public virtual IActionResult GetArticles([FromQuery]string filterCategory, [FromQuery]string filterTagset, [FromQuery]string filterTitle, [FromQuery]int? size, [FromQuery]int? page, [FromQuery]string order)
+        public virtual IActionResult GetArticles([FromQuery]string filterCategory, [FromQuery]string filterTagset, [FromQuery]string filterTagIntersection, [FromQuery]string filterTagExclusion, [FromQuery]string filterTitle, [FromQuery]int? size, [FromQuery]int? page, [FromQuery]string order)
         { 
             string exampleJson = null;
             

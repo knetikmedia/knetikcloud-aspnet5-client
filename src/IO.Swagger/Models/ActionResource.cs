@@ -1,7 +1,7 @@
 /*
  * Knetik Platform API Documentation latest 
  *
- * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+ * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
  *
  * OpenAPI spec version: latest 
  * Contact: support@knetik.com
@@ -167,9 +167,9 @@ namespace IO.Swagger.Models
             EventEnum
         }
         /// <summary>
-        /// The category the action is in. All customer specific actions are in the 'custom' category
+        /// The category the action is in. All customer specific actions are in the &#39;custom&#39; category
         /// </summary>
-        /// <value>The category the action is in. All customer specific actions are in the 'custom' category</value>
+        /// <value>The category the action is in. All customer specific actions are in the &#39;custom&#39; category</value>
         [DataMember(Name="category")]
         public CategoryEnum? Category { get; set; }
 

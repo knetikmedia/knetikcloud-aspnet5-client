@@ -1,7 +1,7 @@
 /*
  * Knetik Platform API Documentation latest 
  *
- * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com
+ * This is the spec for the Knetik API.  Use this in conjunction with the documentation found at https://knetikcloud.com.
  *
  * OpenAPI spec version: latest 
  * Contact: support@knetik.com
@@ -33,7 +33,7 @@ namespace IO.Swagger.Models
         /// </summary>
         /// <param name="AccessTokenValiditySeconds">The expiration time of an initial oauth token in seconds.</param>
         /// <param name="ClientKey">The client_id field of the oauth token request (required).</param>
-        /// <param name="GrantTypes">The oauth grant type as in: password (username/password auth), client_credentials (server-to-server, private clients), refresh_token (to allow clients to refresh their initial token), facebook, google, etc) See documentation for a complete list. use dedicated endpoint PUT /grant-types to edit this list.</param>
+        /// <param name="GrantTypes">The oauth grant type as in: password (username/password auth), client_credentials (server-to-server, private clients), refresh_token (to allow clients to refresh their initial token), facebook, google, etc) See documentation for a complete list. Use dedicated endpoint PUT /grant-types to edit this list.</param>
         /// <param name="Id">Generated unique ID for the client.</param>
         /// <param name="IsPublic">Set to true if the client is public i.e the secret key can be secured.</param>
         /// <param name="Locked">Used to flag system clients that are not meant to be tinkered with.</param>
@@ -93,9 +93,9 @@ namespace IO.Swagger.Models
         [DataMember(Name="client_key")]
         public string ClientKey { get; set; }
         /// <summary>
-        /// The oauth grant type as in: password (username/password auth), client_credentials (server-to-server, private clients), refresh_token (to allow clients to refresh their initial token), facebook, google, etc) See documentation for a complete list. use dedicated endpoint PUT /grant-types to edit this list
+        /// The oauth grant type as in: password (username/password auth), client_credentials (server-to-server, private clients), refresh_token (to allow clients to refresh their initial token), facebook, google, etc) See documentation for a complete list. Use dedicated endpoint PUT /grant-types to edit this list
         /// </summary>
-        /// <value>The oauth grant type as in: password (username/password auth), client_credentials (server-to-server, private clients), refresh_token (to allow clients to refresh their initial token), facebook, google, etc) See documentation for a complete list. use dedicated endpoint PUT /grant-types to edit this list</value>
+        /// <value>The oauth grant type as in: password (username/password auth), client_credentials (server-to-server, private clients), refresh_token (to allow clients to refresh their initial token), facebook, google, etc) See documentation for a complete list. Use dedicated endpoint PUT /grant-types to edit this list</value>
         [DataMember(Name="grant_types")]
         public List<string> GrantTypes { get; set; }
         /// <summary>
